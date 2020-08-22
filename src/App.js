@@ -15,7 +15,8 @@ function App() {
 
   useEffect(() => {
     document.addEventListener('keydown', function (e) {
-      document.getElementById("keyPressed").innerHTML=e.key;
+      document.getElementById("keyPressed").innerHTML=e.code!=='Space'?e.key:'Space';
+      document.getElementById("keyPressed").style.fontSize='100px'
       console.log(e.keyCode)
       console.log(e.key)
       console.log(e.code)
@@ -43,10 +44,10 @@ function App() {
     <div id="App">
       <h3 id='keyPressed'>Press any key to get the Javascript event code</h3>
       {keyCode?<div id='cards'>
-      <CardDark header='e.keyCode' body={keyCode}/>
-      <CardDark header='e.key' body={Key}/>
-      <CardDark header='e.code' body={code}/>
-      <CardDark header='e.location' body={location}/>
+      <CardDark header='e.keyCode' bodycard={keyCode}/>
+      <CardDark header='e.key' bodycard={Key}/>
+      <CardDark header='e.code' bodycard={code}/>
+      <CardDark header='e.location' bodycard={location}/>
       </div>:null}
     </div>
   );
